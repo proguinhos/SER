@@ -1,0 +1,50 @@
+import React from 'react';
+
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Image,
+  Text
+} from 'react-native';
+
+const App = () => {
+  return (
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <Image
+          source={{
+            uri:
+              'https://proton-resources-production.imgix.net/75e04c7327085a0eac3fa3e672f6f4ca16b74b8f423b9e3cd7675aba21e87e1b.png?auto=compress&quot',
+          }}
+          style={{
+            width: 300,
+            height: 300,
+            marginTop: 135,
+            borderRadius: 300 / 2
+          }}
+        />
+        <Text style={styles.textHeadingStyle}>
+          Próximo
+        </Text>
+      </View>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor:'#3CB371'
+  },
+  textHeadingStyle: {
+    marginTop: 30,
+    fontSize: 30,
+    color: '#ffffff',
+    fontWeight: '400',
+  },
+});
+
+export default App;
