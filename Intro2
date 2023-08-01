@@ -1,0 +1,68 @@
+import React from 'react';
+
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Image,
+  Text
+} from 'react-native';
+
+const App = () => {
+  return (
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <Text style={styles.recicle}>
+        RECICLE
+        </Text>
+      <Text style={styles.limpo}>
+        Ajude o meio ambiente a se manter limpo!!
+        </Text>
+
+        <Image
+          source={{
+            uri:
+              'https://proton-resources-production.imgix.net/a3b68481be82755bf8102515c29e135c99ab34ff705edd9a3a6d944259b103e1.jpg?auto=compress&quot',
+          }}
+          style={{
+            width: 300,
+            height: 300,
+            marginTop: 135,
+            borderRadius: 300 / 2
+          }}
+        />
+        <Text style={styles.textHeadingStyle}>
+          Próximo
+        </Text>
+      </View>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor:'#3CB371'
+  },
+  textHeadingStyle: {
+    marginTop: 30,
+    fontSize: 30,
+    color: '#ffffff',
+    fontWeight: '400',
+  
+    recicle: {
+    marginTop: 30,
+    fontSize: 30,
+    color: '#ffffff',
+    fontWeight: '400',
+  },
+    limpo: {
+    marginTop: 30,
+    fontSize: 30,
+    color: '#ffffff',
+    fontWeight: '400',
+}}});
+
+export default App;
