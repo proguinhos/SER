@@ -1,0 +1,105 @@
+import { Text, View,TextInput, StyleSheet, Pressable } from 'react-native';
+import Constants from 'expo-constants';
+
+// You can import from local files
+import AssetExample from './components/AssetExample';
+
+// or any pure javascript modules available in npm
+import { Card } from 'react-native-paper';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.formTitle}>
+        Entrar
+      </Text>
+       <Text style= {styles.subText}> Email </Text>
+      <TextInput style= {styles.formInput}
+      placeholder= "Informe o E-mail"
+      keyboardType= "email-address"
+      autoCapitalize= "none"
+      autoComplete= "email"
+      />
+         <Text style= {styles.subText}> Senha </Text>
+      <TextInput style= {styles.formInput}
+      placeholder= "Informe a senha"
+      autoCapitalize= "none"
+      secureTextEntry
+      />
+      <Pressable style= {styles.formButton}>
+        <Text style= {styles.textButton}> Entrar </Text>
+      </Pressable>
+      <Card>
+        <AssetExample/>
+      </Card>
+      <View style={styles.subContainer}>
+       <Pressable style={styles.subBotton}>
+          <Text style= {styles.subTextBotton}> Esqueceu a senha? </Text>
+        </Pressable>
+        <Pressable style={styles.subBotton}>
+          <Text style= {styles.subTextBotton}> Inscreva-se </Text>
+        </Pressable>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  formTitle: {
+    margin: 50,
+    fontSize: 23,
+    fontWeight: 'bold',
+    color: '#3CB371',
+    textAlign: 'center',
+  },
+  formInput: {
+    borderColor: '#C0C0C0',
+    borderWidth: 1,
+    borderRadius: 6,
+    fontSize: 13,
+    color: 'gray',
+    width: '93%',
+    padding: 6,
+    margin: 10,
+  },
+   formButton: {
+    backgroundColor: '#3CB371',
+    width: '92%',
+    margin: 48,
+    padding: 9, 
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  textButton: {
+    color: 'white',
+    fontSize: 13,
+    fontWeight: 'bold',
+  },
+  subContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '80%',
+  },
+  subBotton: {
+    padding: 0,
+  },
+  subTextBotton: {
+    color: '#3CB371',
+     margin: 15,
+      fontSize: 13,
+  },
+  subText: {
+    fontSize: 11,
+   fontWeight: 'bold',
+    width: '94%',
+    padding: 2,
+    margin: 1,
+   color: 'black',
+  },
+});
