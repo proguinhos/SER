@@ -1,0 +1,116 @@
+
+// Custom Navigation Drawer / Sidebar with Image and Icon in Menu Options
+// https://aboutreact.com/custom-navigation-drawer-sidebar-with-image-and-icon-in-menu-options/
+import React from 'react';
+import {
+  SafeAreaView,
+  View,
+  FlatList,
+  StyleSheet,
+  Text,
+  StatusBar,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
+import * as WebBrowser from 'expo-web-browser';
+
+const DATA = [
+  {
+    id:'Oba Hortifruti',
+    imagem: 'https://images.rappi.com.br/marketplace/store_type_1687440586474.png?d=200x200&e=webp',
+    link: 'https://www.obahortifruti.com.br',
+  },
+  
+  {
+    id: 'Pão de Açúcar',
+    imagem: 'https://images.rappi.com.br/marketplace/store_type_1679431178160.png?d=200x200&e=webp',
+    link: 'https://www.paodeacucar.com',
+    
+    // imagem: require('../assets/imagem.png')
+    // retirar o parâmetro uri
+  },
+  {
+    id: 'Sítio Verde',
+    imagem: 'https://yata.s3-object.locaweb.com.br/9c0f867a0cb39eb9aba6fb417ee80704bd9f0c729831f813c97049b1323847ce',
+    link: 'https://sitioverdehortifruti.com.br',
+  },
+  {
+    id: 'Hortifruti',
+    title: ' Vila Prudente',
+    imagem: 'https://hortifruti.com.br/venia-static/icons/hortifruti_192.png',
+    link:'https://hortifruti.com.br'
+  },
+];
+
+const Item = ({ item }) => (
+  <View style={styles.item}>
+    <TouchableOpacity onPress={() =>clickItemFlatList(item)}>
+      <View style={{ flex: 1, flexDirection: 'row' }}>
+        <View style={{ flex: 1 }}>
+          <Image
+            style={styles.logo}
+            source={{
+              uri: item.imagem,
+            }}
+          />
+        </View>
+        
+        <View style={{ flex: 4 }}>
+          <Text style={styles.title}>{item.id}</Text>
+          <Text style={styles.preco}>Saiba mais+ {item.preco}</Text>
+
+        </View>
+        
+      </View>
+    </TouchableOpacity>
+  </View>
+);
+
+clickItemFlatList = (item) => {
+WebBrowser.openBrowserAsync(item.link)
+};
+
+const App = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={DATA}
+        renderItem={({ item }) => <Item item={item} />}
+        keyExtractor={(item) => item.id}
+      />
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  item: {
+    borderColor: 'black',
+    borderWidth: 1,
+    backgroundColor: '000FFFF',
+    padding: 20,
+    marginVertical: 0,
+    marginHorizontal: 0,
+    borderRadius: 0,
+  },
+  title: {
+    fontSize: 15,
+    marginLeft: 30,
+  },
+  preco: {
+    color: 'green',
+    fontSize: 12,
+    marginLeft: 30,
+  },
+  logo: {
+    resizeMode: 'center',
+    width: 60,
+    height: 60,
+    alignSelf: 'center',
+  },
+});
+
+export default App;
