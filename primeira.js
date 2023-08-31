@@ -23,12 +23,12 @@ const PrimeiraPagina = ({ navigation }) => {
            <TouchableOpacity
             style={Estilo.button1}
             onPress={() => navigation.navigate('SegundaPagina')}>
-            <Text  style={Estilo.texto}> + </Text>
+            <Text  style={Estilo.texto}>    ↠  </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={Estilo.button}
             onPress={() => navigation.navigate('HomePage')}>
-            <Text  style={Estilo.texto}>-</Text>
+            <Text  style={Estilo.texto}>  ↞ </Text>
           </TouchableOpacity>
          
         </View>
@@ -42,4 +42,3 @@ const styles = StyleSheet.create({
 });
 
 export default PrimeiraPagina;
-conectado ao desconto
